@@ -10,7 +10,7 @@ from datetime import datetime
 
 def home(request):
     # Redirect to a specific URL
-    return render(request,'cmain.html')
+    return render(request,'index.html')
 
 def elogin(request):
      if request.method == 'POST':
