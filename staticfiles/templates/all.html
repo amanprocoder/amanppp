@@ -1,0 +1,73 @@
+<!-- employee_details.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Employee Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<style>  body{
+    background-image: url('/static/m.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+          td{
+            color: yellow;
+            text-shadow: 2px 2px 2px black;
+            
+          }
+      
+
+        
+            .box{
+                border: 2px solid orange;
+                box-shadow: 0 0 10px  blue;
+            }
+            th{
+                color: white;
+            }
+            h1{
+                color: white;
+            }
+           
+            
+</style></style>
+<body>
+    <div class="container mt-5">
+        <h1>Employee Details</h1>
+        <table class="table box">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Date of Birth</th>
+                    <th>Email</th>
+                    <th>Department</th>
+                    <th>Mobile Number</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for employee in employee_data %}
+                    <tr>
+                        <td>{{ employee.id }}</td>
+                        <td>{{ employee.name }}</td>
+                        <td>{{ employee.dob }}</td>
+                        <td>{{ employee.email }}</td>
+                        <td>{{ employee.department }}</td>
+                        <td>{{ employee.mobile_number }}</td>
+                        <td>
+                            <img src="{{ employee.image.url }}" alt="{{ employee.name }}" class="img-thumbnail" style="max-width: 100px;">
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Company Website</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+
+      #hero{
+        background-image: url('/static/t4.jpg');
+        background-size: cover;
+                color: white;
+                text-shadow: 2px 2px 2px red;
+      }
+        .fadeInAnimation {
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        #nav{
+            background-color: rgba(2, 1,1, 0.1);
+            color: white;
+
+        }
+        .color{
+            background-color: brown;
+        }
+        #navbar ul li a{
+            color: white;
+        }
+        #navbar ul li a:hover{
+            color: yellow;
+        }
+        .company{
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+            color: white;
+            font-size: large;
+        }
+        #services{
+            background-color: yellow;
+            margin: 0;
+        }
+        .name{
+         
+          color: orange;
+          font-weight: bold;
+          
+        }
+        #team{
+            background-color: orange;
+        }
+        #contact{
+            background-color:black;
+            color: white;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="color">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">AMAN IT COMPANY</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#hero">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#team">Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/mlogin/">manager login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/elogin/">employee login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="hero" class="jumbotron text-center">
+        <div class="container">
+            <h1 class="display-4 fadeInAnimation">Welcome to Our Company</h1>
+            <p class="lead fadeInAnimation">We provide top-notch services to meet your needs.</p>
+
+        </div>
+    </section>
+</div>
+
+    <section id="services" class="custom-section text-center">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="row">
+                <div class="col-lg-4">
+                    <h3>Service 1: Digital Marketing Solutions</h3>
+                    <p>Our digital marketing solutions are designed to boost your online presence and drive meaningful results. We employ a multi-channel approach, leveraging social media, search engine optimization (SEO), and content marketing to reach your target audience effectively. From crafting compelling ad campaigns to optimizing website performance, we're committed to helping your business thrive in the digital landscape.</p>
+                </div>
+                <div class="col-lg-4">
+                    <h3>Service 2:Website Development and Design</h3>
+                    <p>[Company Name] specializes in creating visually stunning and highly functional websites tailored to your unique brand identity. Our expert team of developers and designers collaborate closely with you to ensure that your website not only looks great but also provides an exceptional user experience. Whether you need an e-commerce platform or a portfolio site, we deliver websites that leave a lasting impression on your visitors.
+
+                    </p>
+                </div>
+                <div class="col-lg-4">
+                    <h3>Service 3: IT Consulting and Support</h3>
+                    <p>Stay ahead of the technology curve with our comprehensive IT consulting and support services. We offer strategic guidance on technology adoption, ensuring that your systems are aligned with your business objectives. From network security assessments to helpdesk support, our team is here to keep your IT infrastructure running smoothly. Trust us to provide reliable solutions that enable your business to thrive in a digitally-driven world.
+
+                        .</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="custom-section text-center">
+        <div class="container">
+            <h2>Our Team</h2>
+            <div class="row">
+                <div class="col-lg-4">
+                    <img src="static/t.jpg" alt="Team Member 1" class="rounded-circle mb-4" width="150">
+                    <h4>Team Member 1</h4>
+                    <p>GENERAL MANAGER</p>
+                </div>
+                <div class="col-lg-4">
+                    <img src="static/t2.jpg" alt="Team Member 2" class="rounded-circle mb-4" width="150">
+                    <h4>Team Member 2</h4>
+                    <p>DESIGNER</p>
+                </div>
+                <div class="col-lg-4">
+                    <img src="static/t3.jpg" alt="Team Member 3" class="rounded-circle mb-4" width="150">
+                    <h4>Team Member 3</h4>
+                    <p>DEVELOPER</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="custom-section text-center">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Have questions? Contact us below.</p>
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="4" placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <p>made by amanpathak</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

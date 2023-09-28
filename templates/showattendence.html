@@ -1,0 +1,89 @@
+<!-- attendance_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<style>body{
+    background-image: url('/static/m.jpg');
+    background-size: cover;
+}
+          td{
+            color: yellow;
+            text-shadow: 2px 2px 2px black;
+            
+          }
+      .button {
+            padding: 10px 20px;
+            margin-left: 10px;
+            margin-top: 10px;
+            font-size: 16px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s; /* Added box-shadow transition */
+        }
+
+         .button:hover {
+            background-color: #45a049;
+            box-shadow: 0 0 10px #45a049; /* Added box-shadow for glow effect */}
+            .input{
+                background: transparent;
+                border: none;
+                border-bottom: 2px solid red;
+                margin-left: 110px;
+                margin-bottom: 50px;
+                color: white;
+            }
+            .box{
+                border: 2px solid orange;
+                box-shadow: 0 0 10px  blue;
+            }
+</style>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="table-responsive">
+                    <form method="post" action="/attendence/">
+                        {% csrf_token %}
+
+                    <input type="text" placeholder="enter name" name="name" class="input">
+                    <button type="submit" class="button">search</button>
+                    </form>
+                    <div class="box">
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Employee Name</th>
+                                <th>Date</th>
+                                <th>Attendance Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for attendance in attendances %}
+                                <tr>
+                                    <td>{{ attendance.employee}}</td>
+                                    <td>{{ attendance.date }}</td>
+                                    <td>{{ attendance.attendance }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

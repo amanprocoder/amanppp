@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Login</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('/static/la.jpg'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .login-container {
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 5px 5px rgba(0, 0, 255,1);
+
+
+            text-align: center;
+            max-width: 80%;
+            background-color: rgba(2,0,0, 0.5);
+            width: 300px;
+           
+        }
+        .login-container a {
+            color: red;
+            font-style: italic;
+        }
+        .login-container a:hover{
+        color: yellow;        }
+
+        .login-box {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .login-box input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+            background-color: transparent;
+            border: none;
+            border-bottom: 2px solid white;
+            color:white;
+        }
+
+        .login-box button {
+            padding: 10px 20px;
+            margin-left: 10vw;
+            margin-top: 10px;
+            font-size: 16px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s; /* Added box-shadow transition */
+        }
+
+        .login-box button:hover {
+            background-color: #45a049;
+            box-shadow: 0 0 10px #45a049; /* Added box-shadow for glow effect */
+        }
+       
+
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>Employee Login</h2>
+        <div class="login-box">
+            <form  method="post"  action="/elogin/">
+                {% csrf_token %}
+            <input type="text" placeholder="Employee Name" name="name">
+            <input type="password" placeholder="Password" name="password">
+      
+        <button type="submit">Login</button>  
+        </form>
+    </div>
+    <p>Do u have any account if not <b><a href="/register/">register</a></b></p>
+    </div>
+</body>
+
+</html>

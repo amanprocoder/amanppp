@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .details {
+            display: none;
+        }
+        body{
+            background-image: url('/static/m.jpg');
+            background-size: cover;
+        }
+      
+        #image{
+               margin-left: 0em;
+               margin-top: 0em;
+        }
+        #text p,h1{
+            list-style: none;
+            color: darkred;
+            font-weight: bold;
+        }
+        #attendence{
+            color: white;
+
+        }
+        #attendence label{
+            color: red;
+            font-weight: bold;
+            font-size: 40px;
+            text-shadow: 2px 2px 2px white;
+        }
+        #text label{
+             color: red;
+            font-weight: bold;
+            font-size: 40px;
+            text-shadow: 2px 2px 2px white;
+
+        }
+
+
+        .button {
+            padding: 10px 20px;
+            margin-left: 10px;
+            margin-top: 10px;
+            font-size: 16px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s; /* Added box-shadow transition */
+        }
+
+         .button:hover {
+            background-color: #45a049;
+            box-shadow: 0 0 10px #45a049; /* Added box-shadow for glow effect */
+        }
+        #present span{
+            font-size: 70px;
+            height: 30px;
+        }
+        span{
+            font-size: 20px;
+            margin: 5px;
+        }
+        #name{
+            background-color: transparent;
+            border: none;
+            color: white;
+            
+            font-size: 30px;
+        }
+        #text input,textarea{ background-color: transparent;
+            border-color: white;
+            color: white;
+            box-shadow: 2px 2px 2px orange;
+
+        }
+        ::placeholder{color: white;
+
+        }
+
+        .namea{
+            font-size: 20px;
+            margin: 5px;
+            color: white;
+
+        }
+        #message{
+            color: green;
+            font-weight: bold;
+            padding-left: 20px;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Employee Portal</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/attendence/"> view Attendance</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Leave</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">employee id</a>
+                </li>
+                
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5" id="main">
+        <div class="row">
+            <div class="col-md-2">
+                <img src="{{ record.image.url }}" class="img-fluid photo  rounded-circle container-fluid"  id="image">
+            </div>
+            <div class="col-md-5" id="text">
+            
+                
+                    <p><h1>Name: {{record.name}}</h1></p>
+                     <p> &nbsp;&nbsp;Department:{{record.department}} </p>
+                   <p>&nbsp;&nbsp;dob:{{record.dob}}</p>
+                 <p>&nbsp;&nbsp;mobile:{{record.mobile_number}} </p>
+                    <!-- Add more details as needed -->
+                
+            </div>
+             <div class="col-md-5" id="text">
+                   <center><LABEL>TAKE LEAVE</LABEL><br>
+                      <form method="post" action="/leave/">
+                {% csrf_token %}
+                <input type="text" placeholder="enter name" name="name"><br><br>
+                <input type="email"  id="" placeholder="enter your email" name="email"><br><br>
+                <textarea name="reason" id="" cols="30" rows="5" placeholder="enter reason"></textarea><br>
+            <button type="submit" class="button">submit</button></center></form>
+
+
+             </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7" id="attendence">
+                <form method="post" action="/mark_attendence/">
+                {% csrf_token %}
+                <label for=""> GIVE ATTENDENCE</label></BR>
+                <input type="text" name="name" value="{{record.name}}" id="name"><br>
+
+                
+                
+                <input type="radio" name="status" value="absent" class="namea"> Absent
+               
+               
+                <input type="radio" name="status" value="present" class="namea"> Present
+             
+                <button type="submit" class="button">Submit</button><br><br>
+                <p id="message">{{message}}</p>
+                <form action=""></form>
+            </div>
+           
+
+
+        </div>
+    </div>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Welcome Template</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('/static/m.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center center;
+            color: #ffffff; /* Set text color to be visible on the background */
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent black overlay to improve text visibility */
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 100px;
+        }
+        .message-box {
+            margin-top: 20px;
+        }
+        .radio-buttons {
+            margin-top: 20px;
+        }
+        #leave textarea{
+            background: transparent;
+            box-shadow: 2px 2px 2px 2px  orange;
+            border-color: white;
+            color:white ;
+        }
+        ::placeholder{
+            color: white;
+        }
+        #leave h3{
+            color:white;
+             text-shadow:2px 2px 2px red ;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/allatt/">Show attendence of all employee</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/all">Show all employee</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/attendence/">Show attendence with name</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container ">
+        <div class="row">
+        
+            <div class="col-md-7">
+                <img src="" alt=""><br>
+        <h2><center>Welcome</h2>
+          <center><img src="/static/t2.jpg" alt="">     </center>   
+        <center> <p>MANAGER <strong>Sir</strong></center></p></div>
+            <div class="col-md-5" id="leave">
+                <h3>leave request from employee</h3>
+                <center>
+            {% if email and name and reason %}
+            <textarea name="" id="myTextarea" cols="30" rows="3" placeholder="no leave get" >name:{{name}}   email:{{email}}  reason:{{ reason }}
+                
+
+            </textarea>
+            <p>{{messagea}}</p>
+            {% else %}
+            <!-- Render content when at least one variable is null -->
+            <textarea name="" id="myTextarea" cols="30" rows="3" placeholder="no leave get" >no leave get
+                
+
+           </textarea>
+           {% endif %}
+            
+           
+        
+        <div class="radio-buttons">
+            <label class="radio-inline">
+                <form action="/manager/"  method="post">
+                    {% csrf_token %}
+
+                <input type="radio" name="acceptance" value="accepted"> Accepted
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="acceptance" value="not_accepted"> Not Accepted
+            </label>
+        </div>
+        <button class="btn btn-primary" type="submit" id="clearButton">response</button></center>
+    </div></div></form>
+    <script>
+        document.getElementById('clearButton').addEventListener('click', function() {
+            document.getElementById('myTextarea').value = '';
+        });
+    </script>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
